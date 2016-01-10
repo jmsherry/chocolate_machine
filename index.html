@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chocolate Machine</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/styles.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.6/jquery.fullPage.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#fullpage').fullpage({
+        sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+        anchors: ['firstSection', 'secondSection', 'thirdSection', 'fourthSection'],
+        menu: '#menu',
+        css3: true,
+        scrollingSpeed: 1000
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <header id="main-header">
+    <nav class="navbar navbar-light bg-faded navbar-fixed-top">
+      <div class="container">
+        <h1 class="navbar-brand">The Chocolate Machine</h1>
+        <ul id="main-menu" class="nav navbar-nav">
+          <li class="nav-item active" data-menuanchor="firstSection">
+            <a class="nav-link" href="#firstSection">Home</a>
+          </li>
+          <li class="nav-item" data-menuanchor="secondSection">
+            <a class="nav-link" href="#secondSection">Features</a>
+          </li>
+          <li class="nav-item" data-menuanchor="thirdSection">
+            <a class="nav-link" href="#thirdSection">Pricing</a>
+          </li>
+          <li class="nav-item" data-menuanchor="fourthSection">
+            <a class="nav-link" href="#fourthSection">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div id="fullpage" class="">
+    <div class="section" data-anchor="firstSection">
+      <div class="container">Section 1</div>
+    </div>
+    <div class="section" data-anchor="secondSection">
+      <div class="container">Section 2</div>
+    </div>
+    <div class="section" data-anchor="thirdSection">
+      <div class="container">Section 3</div>
+    </div>
+    <div class="section" data-anchor="fourthSection">
+      <div class="container">Section 4</div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      &copy; General Assembly 2015. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+
+</html>

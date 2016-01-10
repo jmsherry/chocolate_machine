@@ -1,0 +1,14 @@
+{
+  "name": "chocolate_machine",
+  "version": "1.0.0",
+  "description": "A virtual chocolate machine",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James Sherry",
+  "license": "ISC"
+}
