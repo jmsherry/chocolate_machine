@@ -1,11 +1,7 @@
 {
   "name": "chocolate_machine",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A virtual chocolate machine",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
