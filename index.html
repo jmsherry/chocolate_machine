@@ -10,6 +10,7 @@
   <link rel="shortcut icon" href="favicon.ico">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./styles/styles.css">
 
 </head>
@@ -21,9 +22,16 @@
 
         <!-- <div id="main-menu-container"> -->
         <h1 class="navbar-brand">The Chocolate Machine</h1>
+
         <button class="navbar-toggler hidden-sm-up pull-right" type="button" data-toggle="collapse" data-target="#dropdown-menu">
           &#9776;
         </button>
+
+        <div class="basketWrapper pull-right">
+          <i class="fa fa-shopping-cart fa-2"></i>
+          <div id="basketTotal" class="basketTotal"></div>
+        </div>
+
         <div class="collapse-wrapper">
           <div class="collapse navbar-toggleable-xs" id="dropdown-menu">
             <ul id="main-menu" class="nav navbar-nav">
@@ -56,26 +64,24 @@
             <hr class="m-y-2">
             <p>Lets you order chocolates from the comfort of your seat!!</p>
             <p class="lead">
-              <a class="btn btn-primary btn-lg" href="#" role="button">Get Started!!</a>
+              <a class="btn btn-primary btn-lg" href="#shop" role="button">Get Started!!</a>
             </p>
           </div>
         </div>
       </div>
     </section>
-
-
     <hr>
     <section id="shop">
       <div class="container">
         <h1>Chocolates</h1>
         <p>See our wide range of yummy chocolates below!!</p>
         <ul id="products" class="list-unstyled row">
-          <!-- <li class="item col-lg-4 col-md-6">
+          <li class="item col-lg-4 col-md-6">
             <img class="" src="http://img.tesco.com/Groceries/pi/476/5000159470476/IDShot_110x110.jpg" alt="Mars Bar Thumbnail" height="110" width="110">
             <div class="blurb">
               <h2>Mars Bar</h2>
               <p>Chocolate Fondant, topped with caramel, all wrapped in chocolate!</p>
-              <button type="button" class="buy btn btn-primary" data-chocolate="0">Buy</button>
+              <button type="button" class="buy btn btn-primary" data-chocolate="0" data-price="0.6">Buy</button>
             </div>
           </li>
           <li class="item col-lg-4 col-md-6">
@@ -83,7 +89,7 @@
             <div class="blurb">
               <h2>Twix</h2>
               <p>Butter Biscuit base, topped with caramel, all wrapped in chocolate!</p>
-              <button type="button" class="buy btn btn-primary" data-chocolate="1">Buy</button>
+              <button type="button" class="buy btn btn-primary" data-chocolate="1" data-price="0.7">Buy</button>
             </div>
           </li>
           <li class="item col-lg-4 col-md-6">
@@ -91,7 +97,7 @@
             <div class="blurb">
               <h2>Galaxy Caramel</h2>
               <p>Silky smooth galaxy milk chocolate!</p>
-              <button type="button" class="buy btn btn-primary" data-chocolate="2">Buy</button>
+              <button type="button" class="buy btn btn-primary" data-chocolate="2" data-price="0.95">Buy</button>
             </div>
           </li>
           <li class="item col-lg-4 col-md-6">
@@ -99,7 +105,7 @@
             <div class="blurb">
               <h2>Aero (Mint)</h2>
               <p>Chocolate-covered mint bubble heaven!</p>
-              <button type="button" class="buy btn btn-primary" data-chocolate="3">Buy</button>
+              <button type="button" class="buy btn btn-primary" data-chocolate="3" data-price="0.6">Buy</button>
             </div>
           </li>
           <li class="item col-lg-4 col-md-6">
@@ -107,7 +113,7 @@
             <div class="blurb">
               <h2>Rolos</h2>
               <p>Chunks of soft caramel covered in chocolate!</p>
-              <button type="button" class="buy btn btn-primary" data-chocolate="4">Buy</button>
+              <button type="button" class="buy btn btn-primary" data-chocolate="4" data-price="0.6">Buy</button>
             </div>
           </li>
           <li class="item col-lg-4 col-md-6">
@@ -115,7 +121,7 @@
             <div class="blurb">
               <h2>Bounty</h2>
               <p>Coconut blocks covered in chocolate!</p>
-              <button type="button" class="buy btn btn-primary" data-chocolate="5">Buy</button>
+              <button type="button" class="buy btn btn-primary" data-chocolate="5" data-price="0.6">Buy</button>
             </div>
           </li>
           <li class="item col-lg-4 col-md-6">
@@ -123,10 +129,10 @@
             <div class="blurb">
               <h2>Turkish Delight</h2>
               <p>Turkish delight covered in chocolate!</p>
-              <button type="button" class="buy btn btn-primary" data-chocolate="6">Buy</button>
+              <button type="button" class="buy btn btn-primary" data-chocolate="6" data-price="0.6">Buy</button>
             </div>
-          </li> -->
-          <img src="./images/css/ajax-loader.gif" alt="loading...">
+          </li>
+          <!-- <li><img src="./images/css/ajax-loader.gif" alt="loading..."></li> -->
         </ul>
       </div>
     </section>
@@ -134,7 +140,7 @@
     <section id="wallet">
       <div class="container">
         <h1>Wallet</h1>
-        <form>
+        <form id="addFundsForm">
           <div class="form-group row">
             <label class="col-sm-2 form-control-label">Money Available:</label>
             <div class="col-sm-10">
@@ -146,7 +152,7 @@
           <div class="form-group row">
             <label for="inputMoney" class="col-sm-2 form-control-label">Add Money</label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" id="newFunds" placeholder="How much will you spend?">
+              <input type="number" min="0" step="1" class="form-control" id="newFunds" name="newFunds" placeholder="How much will you spend?">
             </div>
           </div>
           <div class="form-group row">
@@ -163,7 +169,7 @@
         <h1>Snacks Bought</h1>
         <p>You have bought the following:</p>
         <ul id="items-bought" class="list-unstyled row">
-          <!-- <li class="item col-lg-4 col-md-6">
+          <li class="item col-lg-4 col-md-6">
             <img class="" src="http://img.tesco.com/Groceries/pi/476/5000159470476/IDShot_110x110.jpg" alt="Mars Bar Thumbnail" height="110" width="110">
             <div class="blurb">
               <h2>Mars Bar</h2>
@@ -178,8 +184,8 @@
               <p>Butter Biscuit base, topped with caramel, all wrapped in chocolate!</p>
               <button type="button" class="eat btn btn-danger" data-purchase-id="1">Eat</button>
             </div>
-          </li> -->
-          <img src="./images/css/ajax-loader.gif" alt="loading...">
+          </li>
+          <!-- <li><img src="./images/css/ajax-loader.gif" alt="loading..."></li> -->
         </ul>
       </div>
     </section>
@@ -190,11 +196,52 @@
     </div>
   </footer>
 
+
+
+  <!-- <script id="product-template" type="text/x-handlebars-template">
+    <li class="item col-lg-4 col-md-6">
+      <img class="" src="{{images.thumbnail}}" alt="{{name}} Thumbnail" height="110" width="110">
+      <div class="blurb">
+        <h2>{{name}}</h2>
+        <p>{{description}}</p>
+        <button type="button" class="buy btn btn-primary" data-chocolate="{{_id}}">Buy</button>
+      </div>
+    </li>
+  </script>
+
+  <script id="bought-template" type="text/x-handlebars-template">
+    <li class="item col-lg-4 col-md-6">
+      <img class="" src="{{images.thumbnail}}" alt="{{name}} Thumbnail" height="110" width="110">
+      <div class="blurb">
+        <h2>{{name}}</h2>
+        <p>{{description}}</p>
+        <button type="button" class="eat btn btn-danger" data-purchase-id="{{purchaseId}}">Eat</button>
+      </div>
+    </li>
+  </script> -->
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  <!-- <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+  <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script> -->
   <script src="./scripts/main.js"></script>
+
+  <!-- <script>
+    Handlebars.registerHelper("debug", function(optionalValue) {
+      console.log("Current Context");
+      console.log("====================");
+      console.log(this);
+
+      if (optionalValue) {
+        console.log("Value");
+        console.log("====================");
+        console.log(optionalValue);
+      }
+    });
+  </script> -->
 
 </body>
 

@@ -24,6 +24,18 @@ hr {
   width: 100%;
 }
 
+.basketWrapper {
+  font-size: 1.5em;
+}
+
+.basketWrapper .fa {
+  color:#6B3005;
+}
+
+.basketTotal {
+  display: inline-block;
+}
+
 /* INTRO SECTION */
 .jumbotron {
   background-image: url(http://i.huffpost.com/gen/1414912/images/o-BRITISH-CANDY-BARS-facebook.jpg);
